@@ -1,8 +1,8 @@
 const db = require("../models");
-const Motorbike = db.motorbike;
+const Boat = db.boat;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Motorbike
+// Create and Save a new Boat
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.id) {
@@ -12,52 +12,52 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Motorbike
-  const motorbike = {
+  // Create a Boat
+  const boat = {
     id: req.body.id,
     userId: req.body.userId,
     brand: req.body.brand,
     model: req.body.model
   };
 
-  // Save Motorbike in the database
-  Motorbike.create(motorbike)
+  // Save Boat in the database
+  Boat.create(boat)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Motorbike."
+          err.message || "Some error occurred while creating the Boat."
       });
     });
 };
 
-// Retrieve all Motorbikes from the database.
+// Retrieve all Boats from the database.
 exports.findAll = (req, res) => {
-  Motorbike.findAll()
+  Boat.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving motorbikes."
+          err.message || "Some error occurred while retrieving boats."
       });
     });
 };
 
-// Find a single Motorbike with an id
+// Find a single Boat with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Motorbike.findByPk(id)
+  Boat.findByPk(id)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Motorbike with id=" + id
+        message: "Error retrieving Boat with id=" + id
       });
     });
 };
@@ -66,48 +66,48 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Motorbike.update(req.body, {
+  Boat.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Motorbike was updated successfully."
+          message: "Boat was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Motorbike with id=${id}. Maybe Motorbike was not found or req.body is empty!`
+          message: `Cannot update Boat with id=${id}. Maybe Boat was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Motorbike with id=" + id
+        message: "Error updating Boat with id=" + id
       });
     });
 };
 
-// Delete a Motorbike with the specified id in the request
+// Delete a Boat with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Motorbike.destroy({
+  Boat.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Motorbike was deleted successfully!"
+          message: "Boat was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Motorbike with id=${id}. Maybe Motorbike was not found!`
+          message: `Cannot delete Boat with id=${id}. Maybe Boat was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Motorbike with id=" + id
+        message: "Could not delete Boat with id=" + id
       });
     });
 };
