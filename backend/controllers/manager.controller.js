@@ -1,114 +1,113 @@
 const db = require("../models");
-const Boat = db.boat;
+const Manager = db.manager;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Boat
+// Create and Save a new Manager
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.userId) {
+  if (!req.body.name) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
     return;
   }
 
-  // Create a Boat
-  const boat = {
-    userId: req.body.userId,
-    managerId: req.body.managerId,
-    brand: req.body.brand,
-    model: req.body.model,
-    status: req.body.status
+  // Create a Manager
+  const manager = {
+    name: req.body.name,
+    surname: req.body.surname,
+    repairedboats: req.body.repairedboats,
+    description: req.body.description
   };
 
-  // Save Boat in the database
-  Boat.create(boat)
+  // Save Manager in the database
+  Manager.create(manager)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Boat."
+          err.message || "Some error occurred while creating the Manager."
       });
     });
 };
 
-// Retrieve all Boats from the database.
+// Retrieve all Managers from the database.
 exports.findAll = (req, res) => {
-  Boat.findAll()
+  Manager.findAll()
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving boats."
+          err.message || "Some error occurred while retrieving managers."
       });
     });
 };
 
-// Find a single Boat with an id
+// Find a single Manager with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Boat.findByPk(id)
+  Manager.findByPk(id)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving Boat with id=" + id
+        message: "Error retrieving Manager with id=" + id
       });
     });
 };
 
-// Update a Boat by the id in the request
+// Update a Manager by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Boat.update(req.body, {
+  Manager.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Boat was updated successfully."
+          message: "Manager was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update Boat with id=${id}. Maybe Boat was not found or req.body is empty!`
+          message: `Cannot update Manager with id=${id}. Maybe Manager was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Boat with id=" + id
+        message: "Error updating Manager with id=" + id
       });
     });
 };
 
-// Delete a Boat with the specified id in the request
+// Delete a Manager with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Boat.destroy({
+  Manager.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Boat was deleted successfully!"
+          message: "Manager was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete Boat with id=${id}. Maybe Boat was not found!`
+          message: `Cannot delete Manager with id=${id}. Maybe Manager was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Boat with id=" + id
+        message: "Could not delete Manager with id=" + id
       });
     });
 };

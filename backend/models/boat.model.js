@@ -6,6 +6,9 @@ module.exports = (sequelize, Sequelize) => {
       model: {
         type: Sequelize.STRING
       },
+      status: {
+        type: Sequelize.STRING
+      },
     });
   
     Boat.associate = function(models) {
@@ -13,6 +16,11 @@ module.exports = (sequelize, Sequelize) => {
         onDelete: "CASCADE",
         foreignKey: "userId",
         as: "users",
+      })
+      Boat.belongsTo(models.manager, {
+        onDelete: "CASCADE",
+        foreignKey: "managerId",
+        as: "managers",
       })
     }
   
