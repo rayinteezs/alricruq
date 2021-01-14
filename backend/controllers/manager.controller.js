@@ -17,7 +17,8 @@ exports.create = (req, res) => {
     name: req.body.name,
     surname: req.body.surname,
     repairedboats: req.body.repairedboats,
-    description: req.body.description
+    description: req.body.description,
+    filename: req.file.filename
   };
 
   // Save Manager in the database

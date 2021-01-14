@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
       status: {
         type: Sequelize.STRING
       },
+      filename: {
+        type: Sequelize.STRING
+      },
     });
   
     Boat.associate = function(models) {

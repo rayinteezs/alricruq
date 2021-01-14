@@ -4,7 +4,7 @@ USE `db_boats`;
 --
 -- Host: localhost    Database: db_boats
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,20 +25,21 @@ DROP TABLE IF EXISTS `boats`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `boats` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `brand` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `status` varchar(45) NOT NULL,
+  `filename` varchar(45) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `userId` int(11) NOT NULL,
-  `managerId` int(11) NOT NULL,
+  `userId` int NOT NULL,
+  `managerId` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `userId_idx` (`userId`),
   KEY `managerId_idx` (`managerId`),
   CONSTRAINT `managerId` FOREIGN KEY (`managerId`) REFERENCES `managers` (`id`),
   CONSTRAINT `userId` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +48,7 @@ CREATE TABLE `boats` (
 
 LOCK TABLES `boats` WRITE;
 /*!40000 ALTER TABLE `boats` DISABLE KEYS */;
-INSERT INTO `boats` VALUES (1,'Saxdor','200 Sport','repairing','1000-01-01 00:00:00','1000-01-01 00:00:00',2,1),(3,'FGX','2000','repaired','2021-11-08 16:01:22','2021-11-08 16:01:22',2,1);
+INSERT INTO `boats` VALUES (1,'Saxdor','200 Sport','repairing',NULL,'1000-01-01 00:00:00','1000-01-01 00:00:00',2,1),(3,'FGX','2000','repaired',NULL,'2021-11-08 16:01:22','2021-11-08 16:01:22',2,1),(9,'asdf','dfasfa','sadadf','image-1637058165023.png','2021-11-16 10:22:45','2021-11-16 10:22:45',2,1);
 /*!40000 ALTER TABLE `boats` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,15 +60,16 @@ DROP TABLE IF EXISTS `managers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `managers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
-  `repairedboats` int(11) NOT NULL,
+  `repairedboats` int NOT NULL,
   `description` varchar(45) NOT NULL,
+  `filename` varchar(45) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +78,7 @@ CREATE TABLE `managers` (
 
 LOCK TABLES `managers` WRITE;
 /*!40000 ALTER TABLE `managers` DISABLE KEYS */;
-INSERT INTO `managers` VALUES (1,'Roberto','Martínez',12,'asfdfa','0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,'Alfredo','González',11,'sadfasdfas','2021-11-08 18:35:25','2021-11-08 18:35:25');
+INSERT INTO `managers` VALUES (1,'Roberto','Martínez',12,'asfdfa',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,'Alfredo','González',11,'sadfasdfas',NULL,'2021-11-08 18:35:25','2021-11-08 18:35:25');
 /*!40000 ALTER TABLE `managers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,7 +93,7 @@ CREATE TABLE `sequelizemeta` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`name`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +114,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `password` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -142,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-10 16:56:05
+-- Dump completed on 2021-11-16 10:35:59

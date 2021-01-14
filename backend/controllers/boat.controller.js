@@ -18,7 +18,8 @@ exports.create = (req, res) => {
     managerId: req.body.managerId,
     brand: req.body.brand,
     model: req.body.model,
-    status: req.body.status
+    status: req.body.status,
+    filename: req.file.filename
   };
 
   // Save Boat in the database

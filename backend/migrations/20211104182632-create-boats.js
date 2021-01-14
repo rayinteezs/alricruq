@@ -17,6 +17,9 @@ module.exports = {
       status: {
         type: Sequelize.STRING
       },
+      filename: {
+        type: Sequelize.STRING
+      },
       userId: {
         type: Sequelize.INTEGER,
         references: {
