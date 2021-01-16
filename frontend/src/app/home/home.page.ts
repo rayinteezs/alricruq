@@ -15,7 +15,7 @@ export class HomePage {
     this.authService.isLoggedIn().then(loggedIn => {
 
       if(loggedIn){
-        this.router.navigateByUrl("/you-are-logged-in");
+        this.router.navigateByUrl("");
         return;
       } 
       this.router.navigateByUrl("/login");
