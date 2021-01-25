@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { AuthService } from '../auth.service';
-import { User } from '../user';
+import { AuthService } from 'src/app/auth/auth.service';
+import { User } from 'src/app/auth/user';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
         this.presentAlert("invalid credentials");
         return;
       }
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/menu/info');
       form.reset();
     }, err => {
       this.presentAlert("Error");

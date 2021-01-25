@@ -16,7 +16,11 @@ export class MenuPage implements OnInit {
     {
       title: 'Contact Us',
       url: '/menu/contact-us'
-    }
+    },
+    {
+      title: 'Sign in / Sign up',
+      url: '/menu/login'
+    },
   ];
 
   selectedPath = '';
