@@ -10,6 +10,7 @@ import { User } from 'src/app/auth/user';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  
 
   constructor(
     private router: Router, 
@@ -32,6 +33,7 @@ export class LoginPage implements OnInit {
         this.presentAlert("invalid credentials");
         return;
       }
+      localStorage.setItem('personalToken',`${res}`)
       this.router.navigateByUrl('/menu/info');
       form.reset();
     }, err => {

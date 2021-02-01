@@ -1,5 +1,37 @@
-<app-header>
+<app-header></app-header>
 
 <ion-content>
-
+    <div id="cabecera">
+        <h1>Contáctanos en</h1>
+        <p>Comercial@Astican.es<br/>
+            928-479-800
+        </p>
+    </div>
+    <h1 id="h1">Envíenos su consulta</h1>
+    <div id="container" class="form">
+        <form (ngSubmit)="submit()" #userForm="ngForm">
+            <div id="user" class="form-group">
+                <input id="input" type="text" placeholder="Nombre" [(ngModel)]="Ask.name" name="name" #name="ngModel"
+                    required>
+                <div *ngIf="name.invalid && name.dirty" class="alert">
+                    <div *ngIf="name.errors?.required">Campo requerido</div>
+                </div>
+            </div>
+            <div id="email" class="form-group">
+                <input type="email" placeholder="Email" [(ngModel)]="Ask.email" name="email"
+                    #email="ngModel" required>
+                <div *ngIf="email.invalid && email.dirty" class="alert">
+                    <div *ngIf="email.errors?.required">Campo requerido</div>
+                </div>
+            </div>
+            <div id="text" class="form-group">
+                <textarea placeholder="Escriba su pregunta" [(ngModel)]="Ask.text" name="text" #text="ngModel"
+                    required></textarea>
+                <div *ngIf="text.invalid && text.dirty" class="alert">
+                    <div class="container" *ngIf="text.errors?.required">Campo requerido</div>
+                </div>
+            </div>
+            <button id="button" type="submit" [disabled]="!userForm .form.valid">Enviar</button>
+        </form>
+    </div>
 </ion-content>

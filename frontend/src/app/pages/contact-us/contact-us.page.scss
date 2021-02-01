@@ -1,0 +1,58 @@
+#cabecera{
+    width:auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgba(96,99,161,1);
+    height: 30%;
+    padding-top: 1%;
+    
+}
+
+#cabecera h1{
+    font-size: 200%;
+}
+#cabecera p{
+    line-height: 200%;
+}
+
+#h1{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 170%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#container{
+    height: 50%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user input{
+    float: left;
+    width: 40%;
+    height: 40px;
+}
+#email input{
+    float: right;
+    width: 50%;
+    height: 40px;
+}
+#text textarea{
+    margin-top: 10%;
+    width: 100%;
+    height: 150px;
+}
+#button{
+    background-color: rgba(95,99,161,1);
+    margin-top: 5%;
+    height: 35px;
+    width: 100px;
+    color:black;
+    font-size: medium;
+}
