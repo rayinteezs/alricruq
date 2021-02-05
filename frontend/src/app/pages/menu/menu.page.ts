@@ -39,9 +39,6 @@ export class MenuPage implements OnInit {
    }
 
   ngOnInit(): void {
-    if(localStorage.getItem('personalToken')){
-      this.miToken = 1;
     }
   }
 
-}
