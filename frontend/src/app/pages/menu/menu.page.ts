@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
-import { url } from 'inspector';
 import { title } from 'process';
-import { AuthService } from 'src/app/auth/auth.service';
-import { User } from 'src/app/auth/user';
+
 
 @Component({
   selector: 'app-menu',

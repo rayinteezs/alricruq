@@ -1,5 +1,5 @@
-<swiper #swiper>
-  <ng-template swiperSlide>Slide 1</ng-template>
-  <ng-template swiperSlide>Slide 2</ng-template>
-  <ng-template swiperSlide>Slide 3</ng-template>
+<swiper #swiper [config]="config">
+  <ng-template swiperSlide *ngFor="let img of images">
+    <img [src]="img">
+  </ng-template>
 </swiper>

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
+import { SliderComponent } from './slider/slider.component';
+import { SwiperModule } from 'swiper/angular';
 
 
 
@@ -8,13 +10,16 @@ import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SliderComponent
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    SliderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SwiperModule
   ]
 })
 export class ComponentsModule { }
