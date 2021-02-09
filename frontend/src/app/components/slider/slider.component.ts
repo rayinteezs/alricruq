@@ -1,11 +1,11 @@
 import { Component, AfterContentChecked, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SwiperComponent } from 'swiper/angular';
-import { EffectCoverflow, SwiperOptions } from 'swiper';
+import { EffectCoverflow, Autoplay, SwiperOptions } from 'swiper';
 import SwiperCore, {
   Pagination
 } from 'swiper/core';
 
-SwiperCore.use([Pagination, EffectCoverflow]);
+SwiperCore.use([Pagination, EffectCoverflow, Autoplay]);
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -17,7 +17,9 @@ export class SliderComponent implements AfterContentChecked {
 
   config: SwiperOptions = {
     pagination: true,
-    effect: 'coverflow'
+    effect: 'coverflow',
+    autoplay: true,
+    loop: true
   }
 
   images = [
