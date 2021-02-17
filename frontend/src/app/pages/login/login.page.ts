@@ -1,6 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user';
 
@@ -10,17 +11,17 @@ import { User } from 'src/app/auth/user';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
+
 
   constructor(
-    private router: Router, 
-    private authService: AuthService, 
+    private router: Router,
+    private authService: AuthService,
     private alertController: AlertController) { }
 
   ngOnInit() {
   }
 
-  login(form){
+  login(form) {
     let user: User = {
       id: null,
       username: form.value.email,
@@ -28,13 +29,13 @@ export class LoginPage implements OnInit {
       name: null,
       isAdmin: null
     };
-    this.authService.login(user).subscribe((res)=>{
-      if(!res.access_token) {
+    this.authService.login(user).subscribe((res) => {
+      if (!res.access_token) {
         this.presentAlert("invalid credentials");
         return;
       }
-      localStorage.setItem('personalToken',`${res}`)
-      this.router.navigateByUrl('/menu/info');
+      localStorage.setItem('userToken', `${res}`)
+      this.router.navigate(['/menu/info']).then(() => { window.location.reload(); });
       form.reset();
     }, err => {
       this.presentAlert("Error");

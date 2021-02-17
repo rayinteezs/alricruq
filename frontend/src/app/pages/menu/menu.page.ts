@@ -8,35 +8,41 @@ import { title } from 'process';
   templateUrl: './menu.page.html',
   styleUrls: ['./menu.page.scss'],
 })
-export class MenuPage implements OnInit {
-  public miToken: number;
+export class MenuPage implements OnInit{
+  username = '';
+  pages = [];
+  selectedPath='';
 
-  pages = [
-    {
-      title: 'Info',
-      url: '/menu/info'
-    },
-    {
-      title: 'Contact Us',
-      url: '/menu/contact-us'
-    },
-    {
-      title: 'Sign in / Sing up',
-      url: '/menu/login'
-    },
-  ];
-  
-  
-  selectedPath = '';
-
-  constructor(private router: Router) {
-    this.miToken = 0;
-    this.router.events.subscribe((event: RouterEvent) =>{
-      this.selectedPath = event.url;
+  constructor(private router:Router) {
+    this.router.events.subscribe((event:RouterEvent)=>{
+      this.selectedPath= event.url;
     })
-   }
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    if (localStorage.getItem('userToken')) {
+      this.pages = [
+        {title: 'Info',url: '/menu/info'},
+        {title: 'Contact Us',url: '/menu/contact-us'},
+        {title: 'User', url: '/menu/login'},
+      ];
+    } else if(localStorage.getItem('adminToken')) {
+      this.pages = [
+        {title: 'Info', url: '/menu/info' },
+        {title: 'Contact Us', url: '/menu/contact-us'},
+        {title: 'Admin', url: '/menu/login'},
+      ];
+    }else{
+      this.pages = [
+        {title: 'Info',url: '/menu/info'},
+        {title: 'Contact Us',url: '/menu/contact-us'},
+        {title: 'Sign in / Sing up',url: '/menu/login'},
+      ];
     }
   }
+  logout(){
+    localStorage.clear();
+    window.location.reload();
+  }
+}
 
