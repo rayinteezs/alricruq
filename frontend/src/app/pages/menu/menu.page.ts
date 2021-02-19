@@ -36,13 +36,22 @@ export class MenuPage implements OnInit{
       this.pages = [
         {title: 'Info',url: '/menu/info'},
         {title: 'Contact Us',url: '/menu/contact-us'},
-        {title: 'Sign in / Sing up',url: '/menu/login'},
       ];
     }
   }
   logout(){
     localStorage.clear();
     window.location.reload();
+  }
+  isLogged(){
+    if(localStorage.getItem('userToken') || localStorage.getItem('adminToken')){
+      return true
+    }else{
+      return false
+    }
+  }
+  login(){
+    this.router.navigate(['/menu/login']).then(() => { window.location.reload(); });
   }
 }
 

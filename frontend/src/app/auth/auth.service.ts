@@ -52,6 +52,12 @@ export class AuthService {
         if (res.user) {
           await this.storage.set("token", res.access_token);
         }
+        if (res.user.isAdmin){
+          localStorage.setItem('adminToken', `${res}`);
+        }
+        else{
+          localStorage.setItem('userToken', `${res}`)
+        }
       })
     );
   }

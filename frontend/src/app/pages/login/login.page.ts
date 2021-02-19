@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
         this.presentAlert("invalid credentials");
         return;
       }
-      localStorage.setItem('userToken', `${res}`)
+
       this.router.navigate(['/menu/info']).then(() => { window.location.reload(); });
       form.reset();
     }, err => {
