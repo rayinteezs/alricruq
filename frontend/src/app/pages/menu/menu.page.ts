@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { title } from 'process';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,6 +32,7 @@ export class MenuPage implements OnInit{
         {title: 'Info', url: '/menu/info' },
         {title: 'Contact Us', url: '/menu/contact-us'},
         {title: 'Admin', url: '/menu/login'},
+        {title: 'Managers', url: '/menu/list-managers'},
       ];
     }else{
       this.pages = [
@@ -41,7 +43,7 @@ export class MenuPage implements OnInit{
   }
   logout(){
     localStorage.clear();
-    window.location.reload();
+    Swal.fire('Se ha cerrado su sesión').then(()=>{this.router.navigate(['/menu/login']).then(() => { window.location.reload(); });});
   }
   isLogged(){
     if(localStorage.getItem('userToken') || localStorage.getItem('adminToken')){

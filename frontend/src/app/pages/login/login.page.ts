@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { User } from 'src/app/auth/user';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -34,8 +35,8 @@ export class LoginPage implements OnInit {
         this.presentAlert("invalid credentials");
         return;
       }
-
-      this.router.navigate(['/menu/info']).then(() => { window.location.reload(); });
+      this.router.navigate(['/menu/info']);
+      Swal.fire('Inicio de Sesión correcto').then(()=>{window.location.reload();});
       form.reset();
     }, err => {
       this.presentAlert("Error");

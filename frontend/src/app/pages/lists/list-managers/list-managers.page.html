@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>list-managers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let manager of Managers">
+      <ion-label>
+        <h2>Nombre: {{manager.name}}</h2>
+        <h3>Apellido: {{manager.surname}}</h3>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear (click)="removeManager(manager)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

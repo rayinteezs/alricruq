@@ -9,7 +9,7 @@ module.exports = app => {
     router.post("/", auth.isAuthenticated, upload.single('file'), managers.create);
   
     // Retrieve all Managers
-    router.get("/", auth.isAuthenticated, managers.findAll);
+    router.get("/",  auth.isAuthenticated, managers.findAll);
 
     // Retrieve a single Manager with id
     router.get("/:id", auth.isAuthenticated, managers.findOne);

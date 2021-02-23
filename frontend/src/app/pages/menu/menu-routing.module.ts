@@ -14,19 +14,23 @@ const routes: Routes = [
     children: [
       {
         path: 'info',
-        loadChildren: () => import('../info/info.module').then( m => m.InfoPageModule)
+        loadChildren: () => import('../info/info.module').then(m => m.InfoPageModule)
       },
       {
         path: 'contact-us',
-        loadChildren: () => import('../contact-us/contact-us.module').then( m => m.ContactUsPageModule)
+        loadChildren: () => import('../contact-us/contact-us.module').then(m => m.ContactUsPageModule)
       },
       {
         path: 'login',
-        loadChildren: () => import('../login/login.module').then( m => m.LoginPageModule)
+        loadChildren: () => import('../login/login.module').then(m => m.LoginPageModule)
       },
       {
         path: 'register',
-        loadChildren: () => import('../register/register.module').then( m => m.RegisterPageModule)
+        loadChildren: () => import('../register/register.module').then(m => m.RegisterPageModule)
+      },
+      {
+        path: 'list-managers',
+        loadChildren: () => import('../lists/list-managers/list-managers.module').then(m => m.ListManagersPageModule)
       },
     ]
   },
@@ -40,4 +44,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MenuPageRoutingModule {}
+export class MenuPageRoutingModule { }
