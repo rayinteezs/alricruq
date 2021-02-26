@@ -13,11 +13,15 @@
   <ion-list>
     <ion-item *ngFor="let manager of Managers">
       <ion-label>
+        <img src="/Astican/backend/public/images/image-1638296426016.png">
         <h2>Nombre: {{manager.name}}</h2>
         <h3>Apellido: {{manager.surname}}</h3>
       </ion-label>
 
       <div class="item-note" item-end>
+        <button ion-button routerLinkActive="tab-selected" routerLink="/menu/create-managers" tab="create">
+          <ion-icon name="add" style="zoom:1.5"></ion-icon>
+        </button>
         <button ion-button clear (click)="removeManager(manager)">
           <ion-icon name="trash" style="zoom:1.5"></ion-icon>
         </button>

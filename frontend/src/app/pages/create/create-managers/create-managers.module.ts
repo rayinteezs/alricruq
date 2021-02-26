@@ -5,18 +5,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MenuPageRoutingModule } from './menu-routing.module';
+import { CreateManagersPageRoutingModule } from './create-managers-routing.module';
 
-import { MenuPage } from './menu.page';
+import { CreateManagersPage } from './create-managers.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuPageRoutingModule,
+    CreateManagersPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [MenuPage]
+  declarations: [CreateManagersPage]
 })
-export class MenuPageModule {}
+export class CreateManagersPageModule {}

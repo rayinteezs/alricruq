@@ -6,19 +6,19 @@ module.exports = app => {
     var upload = require('../multer/upload');
   
     // Create a new Manager
-    router.post("/", auth.isAuthenticated, upload.single('file'), managers.create);
+    router.post("/", upload.single('file'), managers.create);
   
     // Retrieve all Managers
-    router.get("/",  auth.isAuthenticated, managers.findAll);
+    router.get("/", managers.findAll);
 
     // Retrieve a single Manager with id
-    router.get("/:id", auth.isAuthenticated, managers.findOne);
+    router.get("/:id", managers.findOne);
   
     // Update a Manager with id
-    router.put("/:id", auth.isAuthenticated, upload.single('file'), managers.update);
+    router.put("/:id", upload.single('file'), managers.update);
   
     // Delete a Manager with id
-    router.delete("/:id", auth.isAuthenticated, managers.delete);
+    router.delete("/:id", managers.delete);
   
     app.use('/api/manager', router);
   };

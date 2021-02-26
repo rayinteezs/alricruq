@@ -1,6 +1,21 @@
 .active-item {
-    border-left: 8px solid var(--ion-color-primary);
+    border-left: 8px solid var(--ion-color-secondary);
 }
-ion-toolbar {
+.header {
     --background: rgba(99,95,161,0.6);
+    margin-bottom: -5%;
+}
+.footer {
+    --background: rgba(99,95,161,0.6);
+}
+ion-item{
+    --background: linear-gradient(45deg, #4158D0 0%, #C850C0 100%);
+    margin-bottom: -2.8%;
+}
+ion-content{
+    --background: linear-gradient(45deg, #4158D0 0%, #C850C0 100%);
+}
+ion-button{
+    --background: linear-gradient(45deg, #4158D0 0%, #C850C0 100%);
+    margin-left: 2%;
 }
