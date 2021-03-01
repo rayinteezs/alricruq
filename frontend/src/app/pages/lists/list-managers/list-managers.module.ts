@@ -9,13 +9,16 @@ import { ListManagersPageRoutingModule } from './list-managers-routing.module';
 
 import { ListManagersPage } from './list-managers.page';
 
+import { ComponentsModule } from 'src/app/components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     ListManagersPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
   declarations: [ListManagersPage]
 })

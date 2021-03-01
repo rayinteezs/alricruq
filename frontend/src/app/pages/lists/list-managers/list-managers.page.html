@@ -1,32 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button>
-
-      </ion-menu-button>
-    </ion-buttons>
-    <ion-title>list-managers</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
+  <div slot="fixed" id="container">
+    <ion-title>Managers</ion-title>
+    <ion-button id="add" routerLinkActive="tab-selected" routerLink="/menu/create-managers" tab="create">
+      <ion-icon name="add-circle-outline" style="zoom:1.5"></ion-icon>
+    </ion-button>
+    <ion-searchbar showCancelButton="focus" (ionChange)="setSearchInput($event)"></ion-searchbar>
+  </div>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let manager of Managers">
-      <ion-label>
-        <img src="/Astican/backend/public/images/image-1638296426016.png">
-        <h2>Nombre: {{manager.name}}</h2>
-        <h3>Apellido: {{manager.surname}}</h3>
-      </ion-label>
-
-      <div class="item-note" item-end>
-        <button ion-button routerLinkActive="tab-selected" routerLink="/menu/create-managers" tab="create">
-          <ion-icon name="add" style="zoom:1.5"></ion-icon>
-        </button>
-        <button ion-button clear (click)="removeManager(manager)">
-          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
-        </button>
-      </div>
-    </ion-item>
-  </ion-list>
-
+  <div *ngFor="let manager of Managers">
+    <ion-card *ngIf="manager.name.toLowerCase().indexOf(getSearchInput()) != -1">
+      <ion-card-header>
+        <ion-img src="http://localhost:4000/{{manager.filename}}"></ion-img>
+      </ion-card-header>
+      <ion-card-title>Nombre: {{manager.name}}</ion-card-title>
+      <ion-card-subtitle>Apellido: {{manager.surname}}</ion-card-subtitle>
+      <ion-button>
+        <ion-icon name="create-outline" style="zoom:1.5"></ion-icon>
+      </ion-button>
+      <ion-button (click)="removeManager(manager)">
+        <ion-icon name="trash-outline" style="zoom:1.5"></ion-icon>
+      </ion-button>
+    </ion-card>
+  </div>
 </ion-content>

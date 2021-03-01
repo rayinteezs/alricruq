@@ -1,0 +1,23 @@
+
+ion-title{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+#container{
+    background: linear-gradient(225deg, #4158d0, #c850c0);
+}
+ion-content{
+    --background: linear-gradient(225deg, #4158d0, #c850c0);
+}
+ion-searchbar{
+    float: right;
+    width: 70%;
+}
+#add{
+    width: 15%;
+    margin-left: 5%;
+}

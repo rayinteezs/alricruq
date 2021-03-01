@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class ListManagersPage implements OnInit {
 
+  public search: string = "";
   Managers: any = []
 
   constructor(private ManagersService: ManagersService, private router: Router) { }
@@ -21,6 +22,16 @@ export class ListManagersPage implements OnInit {
       this.Managers = response;
     })
   }
+  
+  setSearchInput(event){
+    console.log(event.detail.value);
+    this.search = event.detail.value;
+  }
+
+  getSearchInput(){
+    return this.search;
+  }
+
   removeManager(manager, i){
     Swal.fire({
       title: 'Are you sure?',

@@ -67,6 +67,8 @@ require("./routes/user.routes")(app);
 require("./routes/boat.routes")(app);
 require("./routes/manager.routes")(app);
 
+app.use(express.static(__dirname + '/public/images'));
+
 app.listen(port, () => {
   console.log('Server started on: ' + port);
 });

@@ -30,7 +30,7 @@ export class ManagersService {
     bodyencoded.append("surname", Managers.surname);
     bodyencoded.append("repairedboats",Managers.repairedboats);
     bodyencoded.append("description",Managers.description);
-    bodyencoded.append("file", Managers.filename);
+    bodyencoded.append("filename", Managers.filename);
     const body = bodyencoded.toString();
     return this.httpClient.post<Managers>(this.endpoint, body, this.httpOptions)
       .pipe(
