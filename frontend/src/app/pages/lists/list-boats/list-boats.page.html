@@ -1,6 +1,6 @@
 <app-header></app-header>
   <div slot="fixed" id="container">
-    <ion-title>Managers</ion-title>
+    <ion-title>Boats</ion-title>
     <ion-button class="add" routerLinkActive="tab-selected" routerLink="/menu/create-managers" tab="create">
       <ion-icon name="add-circle-outline" style="zoom:1.5"></ion-icon>
     </ion-button>
@@ -8,18 +8,18 @@
   </div>
 
 <ion-content>
-  <div *ngFor="let manager of Managers">
-    <ion-card *ngIf="manager.name.toLowerCase().indexOf(getSearchInput()) != -1 || manager.surname.toLowerCase().indexOf(getSearchInput()) != -1">
+  <div *ngFor="let boat of Boats">
+    <ion-card *ngIf="boat.brand.toLowerCase().indexOf(getSearchInput()) != -1 || boat.model.toLowerCase().indexOf(getSearchInput()) != -1">
       <ion-card-header>
-        <ion-img src="http://localhost:4000/{{manager.filename}}"></ion-img>
+        <ion-img src="http://localhost:4000/{{boat.filename}}"></ion-img>
       </ion-card-header>
-      <ion-card-title>Nombre: {{manager.name}}</ion-card-title>
-      <ion-card-subtitle>Apellido: {{manager.surname}}</ion-card-subtitle>
+      <ion-card-title>Nombre: {{boat.brand}}</ion-card-title>
+      <ion-card-subtitle>Apellido: {{boat.model}}</ion-card-subtitle>
       <div class="container">
         <ion-button class="create">
           <ion-icon name="create-outline" style="zoom:1.5"></ion-icon>
         </ion-button>
-        <ion-button class="delete" (click)="removeManager(manager)">
+        <ion-button class="delete" (click)="removeBoat(boat)">
           <ion-icon name="trash-outline" style="zoom:1.5"></ion-icon>
         </ion-button>
       </div>

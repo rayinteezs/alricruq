@@ -2,20 +2,24 @@
     border-left: 8px solid var(--ion-color-secondary);
 }
 .header {
-    --background: rgba(99,95,161,0.6);
+    --background: linear-gradient(45deg, #e2e2e2, #ffffff);
     margin-bottom: -5%;
 }
 .footer {
-    --background: rgba(99,95,161,0.6);
+    --background: linear-gradient(45deg, #e2e2e2, #ffffff);
 }
 ion-item{
-    --background: linear-gradient(45deg, #4158D0 0%, #C850C0 100%);
+    --background: linear-gradient(45deg, #4158D0 0%, #50c4c8 100%);
     margin-bottom: -2.8%;
 }
 ion-content{
-    --background: linear-gradient(45deg, #4158D0 0%, #C850C0 100%);
+    --background: linear-gradient(90deg, #4158D0 0%, #50c4c8 100%);
 }
-ion-button{
-    --background: linear-gradient(45deg, #4158D0 0%, #C850C0 100%);
+.login{
+    --background: linear-gradient(45deg, #4158D0 0%, #50c4c8 100%);
+    margin-left: 2%;
+}
+.logout{
+    --background: linear-gradient(45deg, #d04141 0%, #c87250 100%);
     margin-left: 2%;
 }

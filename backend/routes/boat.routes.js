@@ -6,19 +6,19 @@ module.exports = app => {
     var upload = require('../multer/upload');
   
     // Create a new Boat
-    router.post("/", auth.isAuthenticated, upload.single('file'), boats.create);
+    router.post("/", upload.single('file'), boats.create);
   
     // Retrieve all Boats
-    router.get("/", auth.isAuthenticated, boats.findAll);
+    router.get("/", boats.findAll);
 
     // Retrieve a single Boat with id
-    router.get("/:id", auth.isAuthenticated, boats.findOne);
+    router.get("/:id", boats.findOne);
   
     // Update a Boat with id
-    router.put("/:id", auth.isAuthenticated, upload.single('file'), boats.update);
+    router.put("/:id", upload.single('file'), boats.update);
   
     // Delete a Boat with id
-    router.delete("/:id", auth.isAuthenticated, boats.delete);
+    router.delete("/:id", boats.delete);
   
     app.use('/api/boat', router);
   };

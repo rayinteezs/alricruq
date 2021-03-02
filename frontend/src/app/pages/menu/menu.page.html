@@ -18,10 +18,10 @@
 
     <ion-footer>
       <ion-toolbar class="footer">
-        <ion-button *ngIf=isLogged() (click)=logout()>
+        <ion-button class="logout" *ngIf=isLogged() (click)=logout()>
           Logout
         </ion-button>
-        <ion-button *ngIf=!isLogged() (click)=login()>
+        <ion-button class="login" *ngIf=!isLogged() (click)=login()>
           Login
         </ion-button>
       </ion-toolbar>

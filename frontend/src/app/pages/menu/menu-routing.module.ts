@@ -36,6 +36,10 @@ const routes: Routes = [
         path: 'create-managers',
         loadChildren: () => import('../create/create-managers/create-managers.module').then( m => m.CreateManagersPageModule)
       },
+      {
+        path: 'list-boats',
+        loadChildren: () => import('../lists/list-boats/list-boats.module').then( m => m.ListBoatsPageModule)
+      },
     ]
   },
   {
