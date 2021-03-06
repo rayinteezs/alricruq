@@ -11,7 +11,10 @@ export class Managers{
   surname: string;
   repairedboats: string;
   description: string;
-  filename: string;
+  file = File;
+}
+const hhtpOptionsUsingFormData ={
+  headers: new HttpHeaders({ 'enctype': 'multipart/form-data; boundary=----WebKitFormBoundaryuL67FWkv1CA'})
 }
 
 @Injectable({
@@ -21,18 +24,16 @@ export class ManagersService {
 
   endpoint = "http://localhost:4000/api/manager";
 
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})};
-  constructor(private httpClient: HttpClient, private  storage:  Storage) { }
+  constructor(private httpClient: HttpClient) { }
 
-  createManager(Managers: Managers): Observable<any>{
-    let bodyencoded = new URLSearchParams();
-    bodyencoded.append("name",Managers.name);
-    bodyencoded.append("surname", Managers.surname);
-    bodyencoded.append("repairedboats",Managers.repairedboats);
-    bodyencoded.append("description",Managers.description);
-    bodyencoded.append("filename", Managers.filename);
-    const body = bodyencoded.toString();
-    return this.httpClient.post<Managers>(this.endpoint, body, this.httpOptions)
+  createManager(Managers: Managers, file:File): Observable<any>{
+    let formData = new FormData();
+    formData.append("name",Managers.name);
+    formData.append("surname", Managers.surname);
+    formData.append("repairedboats",Managers.repairedboats);
+    formData.append("description",Managers.description);
+    formData.append("file", file);
+    return this.httpClient.post<Managers>(this.endpoint, formData,hhtpOptionsUsingFormData)
       .pipe(
         catchError(this.handleError<Managers>('Error occured'))
       );
@@ -53,23 +54,23 @@ export class ManagersService {
     );
   }
 
-  updateManagers(id, Managers: Managers): Observable<any> {
+  /* updateManagers(id, Managers: Managers): Observable<any> {
     let bodyencoded = new URLSearchParams();
     bodyencoded.append("name",Managers.name);
     bodyencoded.append("surname", Managers.surname);
     bodyencoded.append("repairedboats",Managers.repairedboats);
     bodyencoded.append("description",Managers.description);
-    bodyencoded.append("filename", Managers.filename);
+    bodyencoded.append("filename", Managers.filename.toString());
     const body = bodyencoded.toString();
     return this.httpClient.put(this.endpoint + '/' + id, body, this.httpOptions)
     .pipe(
       tap(_ => console.log('managers updated: ${id}')),
       catchError(this.handleError<Managers[]>('Update managers'))
     );
-  }
+  } */
 
   deleteManagers(id): Observable<Managers[]>{
-    return this.httpClient.delete<Managers[]>(this.endpoint + '/' + id, this.httpOptions)
+    return this.httpClient.delete<Managers[]>(this.endpoint + '/' + id)
     .pipe(
       tap(_ => console.log('manager deleted: ${id}')),
       catchError(this.handleError<Managers[]>('Delete manager'))

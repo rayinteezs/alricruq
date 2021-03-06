@@ -68,7 +68,16 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Boat.update(req.body, {
+  const boat = {
+    userId: req.body.userId,
+    managerId: req.body.managerId,
+    brand: req.body.brand,
+    model: req.body.model,
+    status: req.body.status,
+    filename: req.file.filename || req.body.filename,
+  };
+
+  Boat.update(boat, {
     where: { id: id }
   })
     .then(num => {

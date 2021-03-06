@@ -20,9 +20,10 @@ ion-searchbar{
 }
 .add{
     width: 15%;
+    height: 60%;
     margin-left: 5%;
     --background: linear-gradient(45deg, #50c896, #41d048);
-    margin-top: 3%;
+    margin-top: 4%;
 }
 ion-img{
     width: 50%;
@@ -31,9 +32,11 @@ ion-img{
 }
 ion-card-title{
     text-align: center;
+    font-size: x-large;
 }
 ion-card-subtitle{
     text-align: center;
+    font-size: smaller;
 }
 .container{
     width: 50%;
@@ -43,9 +46,11 @@ ion-card-subtitle{
 .delete{
     float: right;
     --background: linear-gradient(45deg, #d04141, #d49c5d);
+    width: 45%;
 }
 .create{
     --background: linear-gradient(45deg, #4158d0, #50c4c8);
+    width: 45%;
 }
 ion-card{
     --background: linear-gradient(45deg, #c2c2c2, #ffffff);

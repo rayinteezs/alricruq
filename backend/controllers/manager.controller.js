@@ -66,8 +66,18 @@ exports.findOne = (req, res) => {
 // Update a Manager by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
+  console.log(req);
 
-  Manager.update(req.body, {
+  // Create a Manager
+  const manager = {
+    name: req.body.name,
+    surname: req.body.surname,
+    repairedboats: req.body.repairedboats,
+    description: req.body.description,
+    // Por si no cambias la foto, te mantiene la anterior <3
+    filename: req.file.filename || req.body.filename,}
+
+  Manager.update(manager, {
     where: { id: id }
   })
     .then(num => {
