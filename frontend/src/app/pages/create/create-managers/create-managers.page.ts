@@ -50,5 +50,9 @@ export class CreateManagersPage implements OnInit {
     }
     console.log(this.managerForm.value)
   }
+  cancel(){
+    this.managerForm.reset;
+    this.router.navigateByUrl("menu/list-managers").then(()=>{window.location.reload();});
+  }
 
 }
