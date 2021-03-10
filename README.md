@@ -2,7 +2,13 @@
 
 # Diagramas
 
-# Requisitos de Usuario
+# Dependencies
+
+**BACKEND**:
+
+node dependencies: *npm install*
+
+**FRONTEND**:
 
 # Casos de Uso
 
@@ -12,7 +18,7 @@
 
 # Manuales
 
-# Pila tecnológia
+# Pile
 
 **BACKEND**: NodeJS
 
