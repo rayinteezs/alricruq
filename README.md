@@ -6,7 +6,7 @@
 
 **BACKEND**:
 
-node dependencies: *npm install*
+***node dependencies***: *npm install*
 
 **FRONTEND**:
 
