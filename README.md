@@ -4,9 +4,9 @@
 
 # Dependencies
 
-**BACKEND**:
+## BACKEND:
 
-***node dependencies***: *npm install*
+**node dependencies**: *npm install*
 
 **FRONTEND**:
 
@@ -20,9 +20,9 @@
 
 # Pile
 
-**BACKEND**: NodeJS
+## BACKEND: NodeJS
 
-**FRONTEND**: Ionic/Angular
+## FRONTEND: Ionic/Angular
 
 # Comparación de tecnologías
 
