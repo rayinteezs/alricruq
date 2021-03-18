@@ -4,11 +4,11 @@
 
 # Dependencies
 
-### BACKEND:
+- ### BACKEND:
 
-**node dependencies**: *npm install*
+  - **node dependencies**: *npm install*
 
-### FRONTEND:
+- ### FRONTEND:
 
 # Casos de Uso
 
