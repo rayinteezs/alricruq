@@ -6,9 +6,13 @@
 
 - ### BACKEND:
 
-  - **node dependencies**: [*npm install*]
+  - **node dependencies**: *```npm install```*
+  - **multer**: *```npm install multer```*
+  - **sequelize**: *```npm install sequelize```
 
 - ### FRONTEND:
+  - **node dependencies**: *```npm install```*
+  - **sweetalert2**: *```npm install sweetalert2```*
 
 # Casos de Uso
 
@@ -20,9 +24,13 @@
 
 # Pile
 
-## BACKEND: NodeJS
+- ## BACKEND: 
 
-## FRONTEND: Ionic/Angular
+  - *```NodeJS```*
+
+- ## FRONTEND: 
+ 
+  - *```Ionic/Angular```*
 
 # Comparación de tecnologías
 
